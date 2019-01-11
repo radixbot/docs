@@ -6,7 +6,7 @@ description: A simple method to deterministically notarize files on a public DLT
 
 ### Overview
 
-Thanks to the immutability storage and times-stamping capabilities of public DLT, notarization is one of the most commonly referenced use-cases outside of transactional services. This section will describe how to create a basic notarization flow using the Radix ledger:
+Thanks to the immutability storage and time-stamping capabilities of public DLT, notarization is one of the most commonly referenced use-cases outside of transactional services. This section will describe how to create a basic notarization flow using the Radix ledger:
 
 1. Alice uploads file 
 2. File gets notarized 
@@ -15,10 +15,6 @@ Thanks to the immutability storage and times-stamping capabilities of public DLT
 5. Bob verifies that Alice was the one who notarized the file
 
 ### How it works 
-
-_Note: In this example, we are using a method that is not advisable for very large scale deployments as it also reduces the available_ [_key-space_](https://en.wikipedia.org/wiki/Key_space_%28cryptography%29) _and creates higher probabilities of key clash. This is not a problem for the use case directly, but creates a wider issue for the network if used for billions of files._
-
-_This is not a concern for the Radix main net. There are many ways to do public file notarisation, and as the Radix feature set expands this method will be retired._
 
 Here we take advantage of the fact that a file can be [hashed](https://www.radixdlt.com/post/primer-on-hashes-and-hash-functions) into a [seed](https://en.wikipedia.org/wiki/Random_seed), this seed can then be used to generate a [private/public key-pair](https://www.radixdlt.com/post/primer-on-public-key-cryptography) that maps to an address on the Radix ledger. This simple function means that the same file will always generate the same key pair; allowing anyone with the file to also find the public address.
 
